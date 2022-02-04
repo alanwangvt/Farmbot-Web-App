@@ -56,6 +56,10 @@ sudo docker-compose run web npm install
 sudo docker-compose run web bundle exec rails db:create db:migrate
 # Generate a set of *.pem files for data encryption
 sudo docker-compose run web rake keys:generate # ⚠ SKIP THIS STEP IF UPGRADING!
+
+# Increase inotify space size to avoid an error message in the precompile step
+echo fs.inotify.max_user_watches=65536 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p
+
 # Build the UI assets via ParcelJS
 sudo docker-compose run web rake assets:precompile
 # Run the server! ٩(^‿^)۶
