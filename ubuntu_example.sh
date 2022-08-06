@@ -93,3 +93,8 @@ sudo docker-compose run web npm run test
   sudo docker-compose run web rails db:migrate # <== ⚠ UPGRADE USERS ONLY
 # === END OPTIONAL UPGRADES ^
 
+Notes (8/6/2022)
+1. Use the main branch of the Farmbot Web App respositary;
+2. Make sure to use the 2.7.0 docker compose;
+3. For db translation error: add environment: POSTGRES_HOST_AUTH_METHOD: "trust" under postgres
+4. For ip address error: run the command again
